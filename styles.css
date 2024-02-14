@@ -1,0 +1,138 @@
+body {
+    background-color: #ffecf2;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    position: relative; /* Mantenemos la posición relativa */
+    width: 100%; /* La hacemos ocupar todo el ancho de la ventana */
+    height: 100%; /* La hacemos ocupar toda la altura de la ventana */
+    display: flex; /* Utilizamos flexbox para centrar el contenido verticalmente */
+    justify-content: center; /* Centramos el contenido horizontalmente */
+    align-items: center; /* Centramos el contenido verticalmente */
+}
+
+.card {
+    position: relative; /* Mantenemos la posición relativa */
+    cursor: pointer;
+}
+
+.card-img {
+    width: 300px;
+    height: 200px;
+    transition: transform 0.3s;
+}
+
+.card:hover .card-img {
+    transform: scale(1.1);
+}
+
+.message {
+    position: absolute; /* Mantenemos la posición absoluta para que esté dentro del contenedor .container */
+    top: 50%; /* La posicionamos verticalmente en el centro del contenedor */
+    left: 50%; /* La posicionamos horizontalmente en el centro del contenedor */
+    transform: translate(-50%, -50%) scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Limitamos el ancho máximo para evitar que el texto sea demasiado ancho */
+    width: 90%;
+    max-height: 90%; /* Limitamos la altura máxima para evitar que el texto sea demasiado alto */
+    overflow: auto; /* Añadimos scroll si el contenido excede el tamaño del contenedor */
+    z-index: 2; /* Ajustamos el z-index para que la hoja aparezca delante */
+}
+
+.message p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.message p:first-of-type {
+    font-weight: bold;
+}
+
+/* El resto del CSS se mantiene igual */
+
+
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ajustamos el z-index para que los corazones y rosas estén detrás de la hoja */
+}
+
+/* El resto del CSS sigue igual */
+.message p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hearts-container {
+    position: absolute;
+    top: 1;
+    left: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://cdn.pixabay.com/photo/2012/04/18/15/15/hearts-37308_1280.png'); /* Reemplaza 'ruta/a/imagen/corazon.png' con la ruta de tu imagen de corazón */
+    background-size: cover;
+    animation: heartAnimation 2s infinite;
+}
+
+
+@keyframes heartAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-50px) rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-100px) rotate(360deg);
+    }
+}
+
+.rose {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://cdn.pixabay.com/photo/2017/01/31/22/06/rose-2027618_1280.png'); /* Reemplaza 'ruta/a/imagen/rosa.png' con la ruta de tu imagen de rosa */
+    background-size: cover;
+    animation: roseAnimation 3s infinite;
+}
+
+@keyframes roseAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-50px) rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-100px) rotate(360deg);
+    }
+}
